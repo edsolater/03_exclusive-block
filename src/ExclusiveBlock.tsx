@@ -5,7 +5,7 @@ export default function ExclusiveBlock({ height, color, top, elref }) {
   useEffect(() => {
     // TODO: 要把这个事件挂载到document上（有且只有一次），onload时触发一次
     const elements = document.querySelectorAll<HTMLDivElement>(
-      "[data-feature~=exclusive]"
+      "[data-feature-tag~=exclusive]"
     )
     const boundingBoxes = Array.from(elements).map((el) =>
       el.getBoundingClientRect()
@@ -31,7 +31,7 @@ export default function ExclusiveBlock({ height, color, top, elref }) {
   return (
     <div
       className="block"
-      data-feature="exclusive weight:1"
+      data-feature-tag="exclusive weight:1"
       ref={elref}
       style={{
         height,
