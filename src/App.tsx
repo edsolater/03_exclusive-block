@@ -7,6 +7,7 @@ function App() {
     { height: 100, color: "#233333", top: 0 },
     { height: 200, color: "#ddd", top: 0 },
     { height: 300, color: "#7eac64", top: 0 },
+    // { height: 300, color: "#7e2c64", top: 0 },
     { height: 230, color: "#7eacf4", top: 650 },
   ]
   return (

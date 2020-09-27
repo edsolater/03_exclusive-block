@@ -7,8 +7,30 @@ function isCollapse(boundingBox1: DOMRect, boundingBox2: DOMRect) {
     accuracy > boundingBox2.top - boundingBox1.bottom
   )
 }
-let isInvoking = false
+/**
+ * 设定元素的CSS变量值
+ * @param target 目标元素
+ * @param name css variable 变量名
+ * @param value 值
+ */
+function setCssVariable(
+  target: HTMLElement,
+  name: string,
+  value: boolean | number | string
+) {
+  target.style.setProperty(name, String(value))
+}
+/**
+ * 获取元素的CSS变量值
+ * @param target 目标元素
+ * @param name css variable 变量名
+ * @param value 值
+ */
+function getCssVariable(target: HTMLElement, name: string) {
+  return getComputedStyle(target).getPropertyValue(name)
+}
 
+let isInvoking = false
 export function exclusiveAglorithm() {
   if (isInvoking) {
     return
@@ -33,11 +55,12 @@ export function exclusiveAglorithm() {
       needSortAgain = true
       const floatElement = elements[i + 1]
       const floatElementDy = Number(
-        getComputedStyle(floatElement).getPropertyValue("--dy") || 0
+        getCssVariable(floatElement, '--dy') || 0
       )
-      floatElement.style.setProperty(
+      setCssVariable(
+        floatElement,
         "--dy",
-        String(floatElementDy - (boundingBox2.top - boundingBox1.bottom))
+        floatElementDy - (boundingBox2.top - boundingBox1.bottom)
       )
     }
   }
