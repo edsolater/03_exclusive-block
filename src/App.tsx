@@ -4,9 +4,10 @@ import ExclusiveBlock from "./ExclusiveBlock"
 
 function App() {
   const already = [
-    { height: 200, color: "#233333", top: 0 },
-    { height: 300, color: "#ddd", top: 200 },
-    { height: 300, color: "#7eac64", top: 520 },
+    { height: 100, color: "#233333", top: 0 },
+    { height: 200, color: "#ddd", top: 0 },
+    { height: 300, color: "#7eac64", top: 0 },
+    { height: 230, color: "#7eacf4", top: 650 },
   ]
   return (
     <div className="App">

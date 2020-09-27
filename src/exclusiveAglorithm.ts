@@ -1,14 +1,14 @@
 function isCollapse(boundingBox1: DOMRect, boundingBox2: DOMRect) {
-  const epsilon = -1
+  const accuracy = -1
   return (
-    boundingBox1.left - boundingBox2.right < epsilon &&
-    epsilon > boundingBox2.left - boundingBox1.right &&
-    boundingBox1.top - boundingBox2.bottom < epsilon &&
-    epsilon > boundingBox2.top - boundingBox1.bottom
+    boundingBox1.left - boundingBox2.right < accuracy &&
+    accuracy > boundingBox2.left - boundingBox1.right &&
+    boundingBox1.top - boundingBox2.bottom < accuracy &&
+    accuracy > boundingBox2.top - boundingBox1.bottom
   )
 }
-// TODO: 要把这个事件挂载到document上（有且只有一次），onload时触发一次
 let isInvoking = false
+
 export function exclusiveAglorithm() {
   if (isInvoking) {
     return
@@ -24,7 +24,8 @@ export function exclusiveAglorithm() {
   const boundingBoxes = Array.from(elements).map((el) =>
     el.getBoundingClientRect()
   )
-  //TODO: 目前只是纵向的判定, 且只能向下移动
+  // TODO: 目前只是纵向的判定, 且只能向下移动
+  // 为了追求性能，这个算法只保证相邻的两个box不重叠
   for (let i = 0; i < boundingBoxes.length - 1; i++) {
     const boundingBox1 = boundingBoxes[i]
     const boundingBox2 = boundingBoxes[i + 1]
