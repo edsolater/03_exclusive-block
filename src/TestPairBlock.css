@@ -26,11 +26,20 @@
   background-color: rgb(188, 197, 206);
   margin: 8px;
 }
+
+
+.box.A,
+.box.B {
+  background-color: #8ebeae;
+  opacity: 0.6;
+  transition: 200ms;
+}
 .box.A {
   height: 20px;
-  background-color: crimson;
 }
 .box.B {
   height: 50px;
-  background-color: crimson;
+}
+.box.highlighted {
+  opacity: 1;
 }
