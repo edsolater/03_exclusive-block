@@ -1,0 +1,34 @@
+.area {
+  margin: 8px;
+  width: 500px;
+  height: 800px;
+
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #eee;
+  border-radius: 16px;
+}
+.panel-1,
+.panel-2 {
+  height: 100%;
+  flex: 1;
+  background-color: #ddd;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.box {
+  height: 200px;
+  border-radius: 8px;
+  background-color: rgb(188, 197, 206);
+  margin: 8px;
+}
+.box.A {
+  background-color: crimson;
+}
+.box.B {
+  background-color: crimson;
+}
