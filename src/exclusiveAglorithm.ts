@@ -1,4 +1,11 @@
+/**
+ * 纯函数
+ * 碰撞检测
+ * @param boundingBox1 1号区域盒子
+ * @param boundingBox2 2号区域盒子
+ */
 function isCollapse(boundingBox1: DOMRect, boundingBox2: DOMRect) {
+  // 允许的误差像素数
   const accuracy = -1
   return (
     boundingBox1.left - boundingBox2.right < accuracy &&
@@ -7,6 +14,7 @@ function isCollapse(boundingBox1: DOMRect, boundingBox2: DOMRect) {
     accuracy > boundingBox2.top - boundingBox1.bottom
   )
 }
+
 /**
  * 设定元素的CSS变量值
  * @param target 目标元素
@@ -20,6 +28,7 @@ function setCssVariable(
 ) {
   target.style.setProperty(name, String(value))
 }
+
 /**
  * 获取元素的CSS变量值
  * @param target 目标元素
@@ -38,7 +47,6 @@ export function exclusiveAglorithm() {
     isInvoking = true
   }
   let needSortAgain = false
-
   // 这个元素查找一定要在react挂载之后触发
   const elements = document.querySelectorAll<HTMLDivElement>(
     "[data-feature-tag~=exclusive]"
@@ -54,9 +62,7 @@ export function exclusiveAglorithm() {
     if (isCollapse(boundingBox1, boundingBox2)) {
       needSortAgain = true
       const floatElement = elements[i + 1]
-      const floatElementDy = Number(
-        getCssVariable(floatElement, '--dy') || 0
-      )
+      const floatElementDy = Number(getCssVariable(floatElement, "--dy") || 0)
       setCssVariable(
         floatElement,
         "--dy",
