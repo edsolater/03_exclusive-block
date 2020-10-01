@@ -1,13 +1,15 @@
 import React from "react"
 import "./App.css"
-import TestExclusiveBlock from "./TestExclusiveBlock"
-import TestPairBlock from "./TestPairBlock"
+import SmoothInsert from "./SmoothInsert"
+// import TestExclusiveBlock from "./TestExclusiveBlock"
+// import TestPairBlock from "./TestPairBlock"
 
 function App() {
   return (
     <div className="App">
       {/* <TestExclusiveBlock /> */}
-      <TestPairBlock />
+      {/* <TestPairBlock /> */}
+      <SmoothInsert array={['A','B']}/>
     </div>
   )
 }
