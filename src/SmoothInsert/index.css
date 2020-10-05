@@ -1,3 +1,18 @@
 .array-test-box {
   margin: 8px 32px;
 }
+ul.array-box {
+  position: relative;
+}
+li.array-item {
+  transition: 300ms;
+}
+
+.array-item.start:last-child {
+  opacity: 1;
+  transform: translateX(0);
+}
+.array-item:last-child {
+  opacity: 0;
+  transform: translateX(30px);
+} 
