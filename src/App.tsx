@@ -1,16 +1,43 @@
-import React from "react"
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core"
+import React, { useState } from "react"
 import "./App.css"
-import SmoothInsert from "./SmoothInsert"
+import FadeInOut from "./FadeInOut"
+// import FadeInOutPure from "./FadeInOutPure"
+// import SmoothInsert from "./SmoothInsert"
 // import TestExclusiveBlock from "./TestExclusiveBlock"
 // import TestPairBlock from "./TestPairBlock"
 
-function App() {
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* <TestExclusiveBlock /> */}
+//       {/* <TestPairBlock /> */}
+//       {/* <SmoothInsert array={['A','B']}/> */}
+//       <FadeInOut opend/>
+//     </div>
+//   )
+// }
+
+const App = () => {
+  const [opened, setOpened] = useState(false)
+  const toggleOpened = () => {
+    setOpened(!opened)
+  }
+
   return (
-    <div className="App">
-      {/* <TestExclusiveBlock /> */}
-      {/* <TestPairBlock /> */}
-      <SmoothInsert array={['A','B']}/>
-    </div>
+    <React.Fragment>
+      <button onClick={toggleOpened}>open</button>
+      <FadeInOut opend={opened}>
+        <div
+          css={css({
+            width: 100,
+            height: 100,
+            backgroundColor: "dodgerblue",
+          })}
+        ></div>
+      </FadeInOut>
+    </React.Fragment>
   )
 }
 
